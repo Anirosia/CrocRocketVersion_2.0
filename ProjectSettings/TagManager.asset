@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameSettings
+  - ResDrop
+  - AudioSlider
+  - SFXSlider
+  - BrightnessSlider
+  - Music
+  - Pause
+  - Main
+  - LevelSelection
+  - ButtonSoundSource
+  - DirLight
+  - Sapphire
+  - Ruby
+  - Emerald
+  - Ameythyst
+  - Diamond
+  - Gold
+  - Quartz
+  - Steak
+  - KillBox
+  - Saw
+  - Fuel
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
