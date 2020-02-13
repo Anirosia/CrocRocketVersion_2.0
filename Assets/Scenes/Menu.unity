@@ -1552,6 +1552,21 @@ PrefabInstance:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 1295458647}
+    - target: {fileID: 8612572462517128872, guid: 8c69e2fcafd6d504cbb95e23bdb74383,
+        type: 3}
+      propertyPath: menuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a8606c0ecb3d9b45831573adff2d6d0, type: 3}
+    - target: {fileID: 8612572462517128872, guid: 8c69e2fcafd6d504cbb95e23bdb74383,
+        type: 3}
+      propertyPath: levelOneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: a4cfebcd8daedc44ea97e52a548d0e5e, type: 3}
+    - target: {fileID: 8612572462517128872, guid: 8c69e2fcafd6d504cbb95e23bdb74383,
+        type: 3}
+      propertyPath: levelTwoMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f2d025122c3c4b449a1b2deba155fe9, type: 3}
     - target: {fileID: 8612572461680566070, guid: 8c69e2fcafd6d504cbb95e23bdb74383,
         type: 3}
       propertyPath: m_IsActive
@@ -2082,6 +2097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612572462517128875, guid: 8c69e2fcafd6d504cbb95e23bdb74383,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c69e2fcafd6d504cbb95e23bdb74383, type: 3}

@@ -27,6 +27,9 @@ public class MenuScript : MonoBehaviour
 
     public AudioClip buttonEnterSound;
 
+    public AudioClip menuMusic;
+    public AudioClip levelOneMusic;
+    public AudioClip levelTwoMusic;
 
     public Slider AudioSlider;
     public Slider SFXSlider;
@@ -36,7 +39,10 @@ public class MenuScript : MonoBehaviour
     private GameObject directionalLightCheck;
 
     private bool paused;
-    public bool inGame;    
+    public bool inGame;
+
+    string sceneName;
+    Scene currentScene;
 
     Resolution[] resolution;
 
@@ -107,13 +113,14 @@ public class MenuScript : MonoBehaviour
 
         AudioSlider.value = Music.volume;
         SFXSlider.value = buttonEnterSource.volume;
-        BrightnessSlider.value = directLight.intensity;        
+        BrightnessSlider.value = directLight.intensity;
+
     }
 
 
     void Update()
     {
-
+        
         switch (_state)
         {
             case GameState.MainMenu:
@@ -124,6 +131,7 @@ public class MenuScript : MonoBehaviour
                 PausePanel.SetActive(false);
                 HUD.SetActive(false);
                 scoringRef.countReset();
+                Music.clip = menuMusic;
                 if (!Music.isPlaying)
                 {
                     Music.Play();
@@ -177,7 +185,8 @@ public class MenuScript : MonoBehaviour
                 PausePanel.SetActive(false);
                 GameSettingsPanel.SetActive(false);
                 HUD.SetActive(true);
-                Music.Stop();
+                //Music.Stop();
+
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Pause();
@@ -208,6 +217,20 @@ public class MenuScript : MonoBehaviour
         if (directionalLightCheck != null)
         {
             Destroy(directionalLightCheck);
+        }
+
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+
+        if (sceneName == "levelOne") //Name of the scene exactly 
+        {
+            Music.clip = levelOneMusic;
+            Music.Play();
+        }
+        else if (sceneName == "levelTwo") //Name of the scene exactly
+        {
+            Music.clip = levelTwoMusic;
+            Music.Play();
         }
     }
 
