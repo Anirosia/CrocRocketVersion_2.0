@@ -10,7 +10,7 @@ public class PersonController : MonoBehaviour
     private GameObject MenuManagerObj;
 
     //private const float SLOPESPEED = 2.5f;
-    private const float AIRSPEED = 3.25f;
+    //private const float AIRSPEED = 3.25f;
 
     //private Vector3 StartGravity = new Vector3(0.0f, -9.8f, 0.0f);
     //private Vector3 SlopeGravity = new Vector3(0.0f, -100f, 0.0f);
@@ -22,6 +22,7 @@ public class PersonController : MonoBehaviour
 
     public float jumpTimeSpan = 0.3f;
     private float jumptime;
+    private float jumpAniTimer;
 
     public float jumpForce;
     public float fallForce;
@@ -52,6 +53,8 @@ public class PersonController : MonoBehaviour
     bool pickupCountDown;
     bool ableToMoveBool;
     bool respawning;
+    bool doubleJumped;
+
 
     void Start()
     {
@@ -64,6 +67,7 @@ public class PersonController : MonoBehaviour
         deathDelay = 2;
         pickupRespawnTimer = 5;
         gotHitTimer = 1;
+        jumpAniTimer = 0.5f;
 
         ableToMoveBool = true;
         hitMe = false;
@@ -151,6 +155,15 @@ public class PersonController : MonoBehaviour
             if (!hitMe)
             {
                 AirManager();
+
+                if (doubleJumped)
+                {
+                    jumpAniTimer -= Time.deltaTime;
+                    if (jumpAniTimer < 0)
+                    {
+                        jumpAniSet();
+                    }
+                }
             }
         }
         else
@@ -369,12 +382,21 @@ public class PersonController : MonoBehaviour
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                     canDoubleJump = false;
+                    doubleJumped = true;
+                    ani.SetBool("DoubleJump", true);
                     scoringRef.FuelCount--;
                     scoringRef.FuelUpdate();
                 }
             }
         }
    
+    }
+
+    public void jumpAniSet()
+    {
+        doubleJumped = false;
+        ani.SetBool("DoubleJump", false);
+        jumpAniTimer = 0.5f;
     }
 
     void Dead()
