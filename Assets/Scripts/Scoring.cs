@@ -55,6 +55,10 @@ public class Scoring : MonoBehaviour
     public Text QuartzcountText;
     public int Quartzcount;
 
+    //set up sound for collectibles
+    public AudioClip PickupSound;
+    public AudioSource PickupSource;
+
     //create win text
     public Text winText;
 
@@ -150,13 +154,13 @@ public class Scoring : MonoBehaviour
     public void SetCountText()
     {
         //updates the UI count for collectibles, lives, and health
-        SapphirecountText.text = Sapphirecount.ToString();
-        RubycountText.text = Rubycount.ToString();
-        EmeraldcountText.text = Emeraldcount.ToString();
-        AmeythystcountText.text = Ameythystcount.ToString();
-        DiamondcountText.text = Diamondcount.ToString();
-        GoldcountText.text = Goldcount.ToString();
-        QuartzcountText.text = Quartzcount.ToString();
+        SapphirecountText.text = Sapphirecount.ToString() + "/25";
+        RubycountText.text = Rubycount.ToString() + "/25";
+        EmeraldcountText.text = Emeraldcount.ToString() + "/25";
+        AmeythystcountText.text = Ameythystcount.ToString() + "/25";
+        DiamondcountText.text = Diamondcount.ToString() + "/25";
+        GoldcountText.text = Goldcount.ToString() + "/25";
+        QuartzcountText.text = Quartzcount.ToString() + "/25";
         LivesText.text = LivesCount.ToString();
 
         //if player has gotten all gems, display win text
@@ -212,6 +216,12 @@ public class Scoring : MonoBehaviour
             Health1.enabled = false;
         }
     }
+
+    public void playSoundEffect()
+    {
+        PickupSource.PlayOneShot(PickupSound);
+    }
+
 
     //all conditions of the fuel gauge
     public void FuelUpdate()

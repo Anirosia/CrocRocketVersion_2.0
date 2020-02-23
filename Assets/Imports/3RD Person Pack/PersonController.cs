@@ -193,102 +193,95 @@ public class PersonController : MonoBehaviour
 
         switch (_type)
         {
+        //colliding with collectibles
             case "Sapphire":
                 other.gameObject.SetActive(false);
                 scoringRef.Sapphirecount++;
                 scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
                 break;
-
-        }
-
-        //colliding with collectibles
-
-        if (other.gameObject.CompareTag("Ruby"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Rubycount++;
-            scoringRef.SetCountText();
-        }
-
-        if (other.gameObject.CompareTag("Emerald"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Emeraldcount++;
-            scoringRef.SetCountText();
-        }
-
-        if (other.gameObject.CompareTag("Ameythyst"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Ameythystcount++;
-            scoringRef.SetCountText();
-        }
-
-        if (other.gameObject.CompareTag("Diamond"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Diamondcount++;
-            scoringRef.SetCountText();
-        }
-
-        if (other.gameObject.CompareTag("Gold"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Goldcount++;
-            scoringRef.SetCountText();
-        }
-
-        if (other.gameObject.CompareTag("Quartz"))
-        {
-            other.gameObject.SetActive(false);
-            scoringRef.Quartzcount++;
-            scoringRef.SetCountText();
-        }
-
-        //colliding with health pick-up
-        if (other.gameObject.CompareTag("Steak"))
-        {
-            if (!scoringRef.Health3.enabled)
-            {
+            case "Ruby":
                 other.gameObject.SetActive(false);
-                scoringRef.HealthCount++;
+                scoringRef.Rubycount++;
                 scoringRef.SetCountText();
-            }
-            
-            //check to see which health display needs to be re-enabled
-            if (scoringRef.Health2.enabled == false)
-            {
-                scoringRef.Health2.enabled = true;
-            }
-            else
-            if (scoringRef.Health3.enabled == false)
-            {
-                scoringRef.Health3.enabled = true;
-            }
-        }
+                scoringRef.playSoundEffect();
+                break;
+            case "Emerald":
+                other.gameObject.SetActive(false);
+                scoringRef.Emeraldcount++;
+                scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
+                break;
+            case "Ameythyst":
+                other.gameObject.SetActive(false);
+                scoringRef.Ameythystcount++;
+                scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
+                break;
+            case "Diamond":
+                other.gameObject.SetActive(false);
+                scoringRef.Diamondcount++;
+                scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
+                break;
+            case "Gold":
+                other.gameObject.SetActive(false);
+                scoringRef.Goldcount++;
+                scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
+                break;
+            case "Quartz":
+                other.gameObject.SetActive(false);
+                scoringRef.Quartzcount++;
+                scoringRef.SetCountText();
+                scoringRef.playSoundEffect();
+                break;
+        //colliding with health/fuel pick-up
+            case "Steak":
+                if (!scoringRef.Health3.enabled)
+                {
+                    other.gameObject.SetActive(false);
+                    scoringRef.HealthCount++;
+                    scoringRef.SetCountText();
+                }
 
-        if (other.gameObject.CompareTag("Fuel"))
-        {
-            fuelCan = other.gameObject;
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            scoringRef.FuelCount += 6;
-            scoringRef.FuelUpdate();
-            pickupCountDown = true;
-        }
-
+                //check to see which health display needs to be re-enabled
+                if (scoringRef.Health2.enabled == false)
+                {
+                    scoringRef.Health2.enabled = true;
+                }
+                else
+                if (scoringRef.Health3.enabled == false)
+                {
+                    scoringRef.Health3.enabled = true;
+                }
+                break;
+            case "Fuel":
+                fuelCan = other.gameObject;
+                other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                scoringRef.FuelCount += 6;
+                scoringRef.FuelUpdate();
+                pickupCountDown = true;
+                break;
         //if player hit the kill box
-        if (other.gameObject.CompareTag("KillBox"))
-        {
-            scoringRef.HealthCount = 0;
-            scoringRef.Health1.enabled = false;
-            scoringRef.Health2.enabled = false;
-            scoringRef.Health3.enabled = false;
-            scoringRef.KillPlayer();
-            if (scoringRef.LivesCount > 0)
-            {
-                scoringRef.ResetHealth();
-            }
+            case "KillBox":
+                scoringRef.HealthCount = 0;
+                scoringRef.Health1.enabled = false;
+                scoringRef.Health2.enabled = false;
+                scoringRef.Health3.enabled = false;
+                scoringRef.KillPlayer();
+                if (scoringRef.LivesCount > 0)
+                {
+                    scoringRef.ResetHealth();
+                }
+                break;
         }
+
+
+
+
+
+
     }
 
     private void OnCollisionEnter(Collision c)
