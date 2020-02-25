@@ -25,6 +25,7 @@ public class PersonController : MonoBehaviour
     private float jumpAniTimer;
 
     public float jumpForce;
+    float doublejumpForce;
     public float fallForce;
 
     private float pickupRespawnTimer;
@@ -53,7 +54,7 @@ public class PersonController : MonoBehaviour
     bool pickupCountDown;
     bool ableToMoveBool;
     bool respawning;
-    bool doubleJumped;
+    public bool doubleJumped;
 
 
     void Start()
@@ -68,6 +69,8 @@ public class PersonController : MonoBehaviour
         pickupRespawnTimer = 5;
         gotHitTimer = 1;
         jumpAniTimer = 0.5f;
+
+        doublejumpForce = jumpForce / 1.25f;
 
         ableToMoveBool = true;
         hitMe = false;
@@ -373,7 +376,7 @@ public class PersonController : MonoBehaviour
             {
                 if (canDoubleJump)
                 {
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    rb.AddForce(Vector3.up * doublejumpForce, ForceMode.Impulse);
                     canDoubleJump = false;
                     doubleJumped = true;
                     ani.SetBool("DoubleJump", true);
@@ -412,7 +415,7 @@ public class PersonController : MonoBehaviour
         deathDelay = 2;
     }
 
-    private bool IsGround()
+    public bool IsGround()
     {
         RaycastHit hit;
         return Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, groundCheckLength, groundLayer);
