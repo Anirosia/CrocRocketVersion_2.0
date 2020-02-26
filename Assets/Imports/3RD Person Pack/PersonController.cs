@@ -29,6 +29,7 @@ public class PersonController : MonoBehaviour
     public float fallForce;
 
     private float pickupRespawnTimer;
+    private float fuelRegenTimer;
 
     private float deathDelay;
     float gotHitTimer;
@@ -67,6 +68,7 @@ public class PersonController : MonoBehaviour
 
         deathDelay = 2;
         pickupRespawnTimer = 5;
+        fuelRegenTimer = 35;
         gotHitTimer = 1;
         jumpAniTimer = 0.5f;
 
@@ -187,6 +189,18 @@ public class PersonController : MonoBehaviour
                 respawnFuel();
             }
         }
+
+        if(scoringRef.FuelCount < 6)
+        {
+            fuelRegenTimer -= Time.deltaTime;
+            if (fuelRegenTimer < 0)
+            {
+                scoringRef.FuelRegen();
+                fuelRegenTimer = 35;
+            }
+        }
+
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -227,7 +241,7 @@ public class PersonController : MonoBehaviour
                 scoringRef.SetCountText();
                 scoringRef.playSoundEffect();
                 break;
-            case "Gold":
+            /*case "Gold":
                 other.gameObject.SetActive(false);
                 scoringRef.Goldcount++;
                 scoringRef.SetCountText();
@@ -238,7 +252,7 @@ public class PersonController : MonoBehaviour
                 scoringRef.Quartzcount++;
                 scoringRef.SetCountText();
                 scoringRef.playSoundEffect();
-                break;
+                break;*/
         //colliding with health/fuel pick-up
             case "Steak":
                 if (!scoringRef.Health3.enabled)

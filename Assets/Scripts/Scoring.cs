@@ -49,11 +49,11 @@ public class Scoring : MonoBehaviour
     public Text DiamondcountText;
     public int Diamondcount;
 
-    public Text GoldcountText;
-    public int Goldcount;
+    //public Text GoldcountText;
+    //public int Goldcount;
 
-    public Text QuartzcountText;
-    public int Quartzcount;
+    //public Text QuartzcountText;
+    //public int Quartzcount;
 
     //set up sound for collectibles
     public AudioClip PickupSound;
@@ -107,8 +107,8 @@ public class Scoring : MonoBehaviour
         Emeraldcount = 0;
         Ameythystcount = 0;
         Diamondcount = 0;
-        Goldcount = 0;
-        Quartzcount = 0;
+        //Goldcount = 0;
+        //Quartzcount = 0;
         LivesCount = 3;
         FuelCount = 6;
         SetCountText();
@@ -159,12 +159,12 @@ public class Scoring : MonoBehaviour
         EmeraldcountText.text = Emeraldcount.ToString() + "/25";
         AmeythystcountText.text = Ameythystcount.ToString() + "/25";
         DiamondcountText.text = Diamondcount.ToString() + "/25";
-        GoldcountText.text = Goldcount.ToString() + "/25";
-        QuartzcountText.text = Quartzcount.ToString() + "/25";
+        //GoldcountText.text = Goldcount.ToString() + "/25";
+        //QuartzcountText.text = Quartzcount.ToString() + "/25";
         LivesText.text = LivesCount.ToString();
 
         //if player has gotten all gems, display win text
-        if((Sapphirecount == 25) &&(Rubycount == 25) && (Emeraldcount == 25) && (Ameythystcount == 25) && (Diamondcount == 25) && (Goldcount == 25) &&( Quartzcount == 25))
+        if((Sapphirecount == 25) &&(Rubycount == 25) && (Emeraldcount == 25) && (Ameythystcount == 25) && (Diamondcount == 25) /*&& (Goldcount == 25) && ( Quartzcount == 25)*/)
         {
             winText.text = "You Win!";
         }
@@ -220,6 +220,12 @@ public class Scoring : MonoBehaviour
     public void playSoundEffect()
     {
         PickupSource.PlayOneShot(PickupSound);
+    }
+
+    public void FuelRegen()
+    {
+        FuelCount++;
+        FuelUpdate();
     }
 
 
