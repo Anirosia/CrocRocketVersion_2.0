@@ -38,7 +38,7 @@ public class MenuScript : MonoBehaviour
     public Light directLight;
     private GameObject directionalLightCheck;
 
-    private bool paused;
+    public bool paused;
     public bool inGame;
 
     string sceneName;
