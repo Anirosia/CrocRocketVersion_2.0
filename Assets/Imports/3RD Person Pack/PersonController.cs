@@ -129,12 +129,12 @@ public class PersonController : MonoBehaviour
         {
             if (hitMe)
             {
-                ani.SetBool("Hit", true);
+                ani.SetTrigger("Hit");
                 ableToMoveBool = false;
+                hitMeSet();
             }
             else
-            {
-                ani.SetBool("Hit", false);
+            {                 
                 if (ableToMoveBool)
                 {
                     movementManager();
@@ -151,6 +151,7 @@ public class PersonController : MonoBehaviour
     public void hitMeSet()
     {
         hitMe = false;
+        ableToMoveBool = true;
     }
 
     void Update()
@@ -306,7 +307,7 @@ public class PersonController : MonoBehaviour
         if (c.gameObject.tag == "Saw")
         {
             hitMe = true;
-            float force = 500;
+            float force = 20;
             Vector3 dir = c.contacts[0].point - transform.position;
             dir = -dir.normalized;
 
@@ -411,18 +412,12 @@ public class PersonController : MonoBehaviour
 
     void Dead()
     {
-        ani.SetBool("Dead", true);
+        ani.SetTrigger("Dead");
         dead = true;
-    }
-
-    void deadAniSwitch()
-    {
-        ani.SetBool("Dead", false);
     }
 
     void respawn()
     {
-        ani.SetBool("Dead", false);
         dead = false;
         scoringRef.ResetHealth();
         gameObject.transform.localPosition = scoringRef.Respawn.transform.localPosition;
