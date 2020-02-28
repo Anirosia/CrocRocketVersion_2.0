@@ -68,7 +68,7 @@ public class PersonController : MonoBehaviour
 
         deathDelay = 2;
         pickupRespawnTimer = 5;
-        fuelRegenTimer = 35;
+        fuelRegenTimer = 20;
         gotHitTimer = 1;
         jumpAniTimer = 0.5f;
 
@@ -196,7 +196,7 @@ public class PersonController : MonoBehaviour
             if (fuelRegenTimer < 0)
             {
                 scoringRef.FuelRegen();
-                fuelRegenTimer = 35;
+                fuelRegenTimer = 20;
             }
         }
 
