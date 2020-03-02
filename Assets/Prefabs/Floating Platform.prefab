@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2782435387366041812}
   - component: {fileID: 6613030832512881378}
   - component: {fileID: 647038311087025691}
+  - component: {fileID: 5980343470003359046}
   m_Layer: 0
   m_Name: Floating Platform
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5980343470003359046
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208772188903774919}
+  m_Material: {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4523576878071891012, guid: 7c637089e178c0b4f86509ab4489ac10, type: 3}
 --- !u!1 &8148183832833174953
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +105,7 @@ GameObject:
   - component: {fileID: 7065375369339566639}
   - component: {fileID: 3914535152056646909}
   - component: {fileID: 545862002356571718}
+  - component: {fileID: 256196596333382038}
   m_Layer: 0
   m_Name: Propeller
   m_TagString: Untagged
@@ -157,3 +173,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &256196596333382038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148183832833174953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1ed5cd2dd567a4282015e5575ebb12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
