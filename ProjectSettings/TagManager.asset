@@ -26,6 +26,7 @@ TagManager:
   - KillBox
   - Saw
   - Fuel
+  - Propeller
   layers:
   - Default
   - TransparentFX

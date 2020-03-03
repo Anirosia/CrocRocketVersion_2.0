@@ -13,6 +13,13 @@ public class CollectSpin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Rotate(0.0f, 1.0f, 0.0f);
+        if(gameObject.tag == "Propeller")
+        {
+            gameObject.transform.Rotate(0.0f, 10.0f, 0.0f);
+        }
+        else
+        {
+            gameObject.transform.Rotate(0.0f, 1.0f, 0.0f);
+        }
     }
 }
