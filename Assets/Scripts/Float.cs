@@ -9,8 +9,7 @@ public class Float : MonoBehaviour
     private Vector3 untoeth;
     private float secondsForOneLength = 1f;
     float speed;
-    //Speed 
-
+    
     void Start()
     {
         frometh = transform.position;
