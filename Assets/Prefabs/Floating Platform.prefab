@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   farEnd: {fileID: 1780791018}
+  speed: 10
 --- !u!1 &8148183832833174953
 GameObject:
   m_ObjectHideFlags: 0
