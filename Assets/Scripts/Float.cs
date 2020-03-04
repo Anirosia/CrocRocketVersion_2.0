@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class Float : MonoBehaviour
 {
-    float randomNumber = Random.Range(1, 5);
     public Transform farEnd;
     private Vector3 frometh;
     private Vector3 untoeth;
-    private float secondsForOneLength;
+    private float secondsForOneLength = 1f;
 
     void Start()
     {
         frometh = transform.position;
         untoeth = farEnd.position;
-        secondsForOneLength = randomNumber;
     }
 
     void Update()
