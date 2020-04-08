@@ -222,12 +222,12 @@ public class MenuScript : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
 
-        if (sceneName == "levelOne") //Name of the scene exactly 
+        if (sceneName == "Islands") //Name of the scene exactly 
         {
             Music.clip = levelOneMusic;
             Music.Play();
         }
-        else if (sceneName == "levelTwo") //Name of the scene exactly
+        else if (sceneName == "Swamp") //Name of the scene exactly
         {
             Music.clip = levelTwoMusic;
             Music.Play();
